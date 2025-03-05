@@ -1,9 +1,8 @@
 # Task Manager
 
+Deploy: https://task-manager-crisps0914.vercel.app/
 
-
-
-![alt text](./src/assets/images/image.png)
+![alt text](./public/assets/images/image.png)
 
 ## Getting Started
 
