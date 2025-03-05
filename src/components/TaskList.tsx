@@ -11,7 +11,7 @@ interface TaskListProps {
 
 const TaskList: React.FC<TaskListProps> = ({ tasks, onToggle, onDelete }) => {
   return (
-    <div className="space-y-2">
+    <div className="space-y-">
       <AnimatePresence>
         {tasks.map(task => (
           <TaskItem

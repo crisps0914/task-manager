@@ -15,7 +15,7 @@ const TaskItem: React.FC<TaskItemProps> = ({ task, onToggle, onDelete }) => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
-      className="flex items-center justify-between p-4 mb-2 bg-white rounded-lg shadow-sm"
+      className="flex items-center justify-between p-4 mb-2 bg-white rounded-sm shadow-sm hover:bg-gray-50 hover:shadow-md"
     >
       <div className="flex items-center space-x-4">
         <button

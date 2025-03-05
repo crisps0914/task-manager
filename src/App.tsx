@@ -46,7 +46,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-gray-700">
       <div className="container mx-auto px-4 py-12 max-w-3xl">
         <div className="bg-white rounded-sm shadow-lg p-6">
           <div className="flex items-center gap-3 mb-8">
