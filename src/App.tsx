@@ -50,7 +50,7 @@ function App() {
       <div className="container mx-auto px-4 py-12 max-w-3xl">
         <div className="bg-white rounded-sm shadow-lg p-6">
           <div className="flex items-center gap-3 mb-8">
-            <img src="./src/assets/images/logo.png" width="32" height="32" alt="" />
+            <img src="../assets/images/logo.png" width="32" height="32" alt="" />
             <h1 className="text-3xl font-bold text-gray-800">Task Manager</h1>
           </div>
 
