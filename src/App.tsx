@@ -1,12 +1,48 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "./store/store";
 import AddTaskForm from "./components/AddTaskForm";
 import TaskList from "./components/TaskList";
+import { useEffect } from "react";
+import { addTask, deleteTask, setError, setLoading, setTasks, toggleTask } from "./store/taskSlice";
+import { fetchTasks } from "./services/task";
 
 function App() {
+  const dispatch = useDispatch();
   const { tasks, loading, error } = useSelector((state: RootState) => state.tasks);
 
+  useEffect(() => {
+    const loadTasks = async () => {
+      dispatch(setLoading(true));
+      try {
+        const initialTasks = await fetchTasks();
+        dispatch(setTasks(initialTasks));
+      } catch (err) {
+        dispatch(setError('Failed to load tasks'));
+      } finally {
+        dispatch(setLoading(false));
+      }
+    };
+
+    if (tasks.length === 0) {
+      loadTasks();
+    }
+  }, [dispatch, tasks.length]);
+
   const handleAddTask = (title: string) => {
+    const newTask = {
+      id: Date.now(),
+      title,
+      completed: false,
+    };
+    dispatch(addTask(newTask));
+  };
+
+  const handleToggleTask = (id: number) => {
+    dispatch(toggleTask(id));
+  };
+
+  const handleDeleteTask = (id: number) => {
+    dispatch(deleteTask(id));
   };
 
   return (
@@ -34,8 +70,8 @@ function App() {
 
           <TaskList
             tasks={tasks}
-            onToggle={() => { }}
-            onDelete={() => { }}
+            onToggle={handleToggleTask}
+            onDelete={handleDeleteTask}
           />
         </div>
       </div>
